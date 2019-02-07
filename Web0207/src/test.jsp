@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<h1>test페이지</h1>	
 	<img src="1.jpg">
 	<img src="2.jpg">
