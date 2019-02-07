@@ -1,0 +1,109 @@
+ drop  sequence  bbs_seq;  
+
+ create sequence bbs_seq
+    start with 1 
+    increment by 1 ;
+
+ drop  table bbs;  
+ commit ;
+
+create  table  bbs (
+  b_no number(7) not null,    --시퀀스  bbs_seq.nextval 사용
+  b_sabun  number(4) not null,   --사번중복체크 필드새로추가  입력할때 4자릿   7789
+  b_name varchar2(15) not null,
+  b_title  varchar2(30) not null, 
+  b_cnt number(5) default 0 ,
+  b_content  varchar2(30) not null,
+  b_phone  varchar2(20) not null, -- 010-1234-9876 숫자입력체크
+  b_pwd  varchar2(10)  not null,
+  b_wdate  date   not null,
+  b_juso1  varchar2(50) not null, --서울  강남구 (다음 우편번호 응용)
+  b_juso2  varchar2(50) not null, --아뱅 11층  KG뱅크 (직접입력)
+  b_email varchar2(30) not null, --메일 @ 표현식=정규식
+  b_url  varchar2(20) null , 
+  b_file1  varchar2(30) null , 
+  b_size1  number(7) default 0 ,
+  primary key(b_sabun)  
+);
+
+COMMIT;
+
+ select  * from  bbs  ;
+ col  b_name  for  a10
+ col  b_title  for  a10
+ col   b_file1  for a15;
+
+
+--bbs댓글  bbsreply테이블 
+  drop sequence  bbsreply_seq ;
+  drop table bbsreply;  
+  commit ; 
+
+ create sequence  bbsreply_seq  ;  --bbsreply댓글시퀀스
+
+ create table  bbsreply (        --댓글관련 테이블 bbsreply 
+   br_num number(4) not null,     --시퀀스 bbsreply_seq.nextVal
+   br_writer varchar2(10) not null,
+   br_content varchar2(20)not null,
+   br_date  date   not null,
+   br_sabun number(4) not null       --bbs테이블의  b_sabun필드와 연결
+);
+commit ; 
+
+--제약조건 create키워드 대신 alter table  대상테이블이름  
+alter table   bbsreply  drop  constraint  bbs_sabun_fk; 
+alter table   bbsreply  add   constraint  bbs_sabun_fk 
+        foreign key(br_sabun) references  bbs(b_sabun) on delete cascade;
+commit ;  
+
+
+리스트목록 
+ bbs_list.jsp 
+ bbs_list2.jsp
+ bbs_list3.jsp  ==>이미지게시판 
+
+ bbs_Detail.jsp 
+
+
+미니miniBBS플젝
+ |-파일업로드,다운로드 ==> 다음주
+ |-이미지게시판  ==> 다음주
+ |-에러발생대체문서 web.xml 연결시키는 방법   ==> 다음주
+
+12월 6일 목요일
+12월 7일 금요일 
+미니프로젝트 
+  |- 신규등록, 저장, 전체출력(페이징, 검색), 한건상세, 삭제, 수정,
+  |-댓글(입력,삭제,수정) 
+  |-문서이름 먼저 명명 
+  |-역할분담 
+
+
+프로젝트이름: miniBBS
+ miniBBS
+  |-src
+  |-WebContent =>오.버=> new =>JSP File 
+     |-css 스타일 폴더생성
+     |-database 폴더생성
+     |-mybbs
+     |-bbs
+     |-images복붙
+     |-js 자바스크립트 폴더생성
+     |-WEB-INF
+        |-lib노란색폴더
+           |-ojdbc5.jar
+        |-web.xml
+           |-에러발생번호 , 대체문서 기술 
+     |-ssi.jsp =>전역변수 
+     |-note.jsp
+     |-book.jsp
+     |-bbsList1.jsp
+     |-bbsList1.jsp
+     |-bbsList3.jsp 이미지게시판
+
+    문서이름 먼저 명명 
+
+
+
+
+

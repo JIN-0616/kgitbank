@@ -1,0 +1,137 @@
+
+drop table kakao_user;
+
+create table kakao_user(
+   user_id varchar2(20) not null ,
+   user_pw varchar2(10) not null,
+   user_name varchar2(20) not null,
+   primary key(user_id)
+);
+
+insert into kakao_user values('hb', '1234', '뱅크'); 
+insert into kakao_user values('coffee', '1234', '커피'); 
+insert into kakao_user values('young', '1234', '영림');
+=======================================================================
+=======================================================================
+=======================================================================
+
+drop table kakao_login;
+
+create table kakao_login(
+   user_id varchar2(20) not null primary key,
+   user_pw varchar2(10) not null,
+   user_name varchar2(20) not null
+);
+
+insert into kakao_login values('kg', '1234', '뱅크'); 
+insert into kakao_login values('young', '1234', 'young'); 
+
+drop sequence kakao_seq;
+create sequence kakao_seq; 
+
+drop table kakao_board;
+create table kakao_board(   		  
+  brd_idx number(4) not null primary key,   -- kakao_seq.nextval사용하세요  	  
+  brd_id varchar2(20) not null, 		  
+  brd_name varchar2(16) not null, 	  
+  brd_content varchar2(50) not null, 	  
+  brd_date date, 			  
+  brd_file varchar2(50), 		  
+  brd_rcmd number(4),   --댓글수 		  
+  brd_email varchar2(30),  		  
+  brd_post varchar2(30), 
+  brd_juso1 varchar2(30), 
+  brd_juso2 varchar2(30), 
+  brd_cnt number(4)   --조회수 
+  //비밀번호, 핸드폰번호 			 
+);
+
+drop table kakao_board_reply;
+create table kakao_board_reply(  //댓글테이블 
+   
+); 
+
+
+
+   drop table kakao; 
+   create table kakao(
+      아이디,이름,비번, 메일, 폰 , 제목, 내용, 날짜 , 파일업로드 
+   ); 
+
+
+   drop table kakao_reply; 
+   create table kakao_reply(
+  
+   ); 
+
+
+
+================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+drop table kakao_comment;
+create table kakao_comment(
+  comment_idx number not null, 
+  comment_boardnum number not null,
+  comment_id varchar2(20) not null,        		   
+  comment_content varchar2(40) not null,    
+  comment_date date not null,     		     
+  comment_RE_REF number not null, 		   
+  comment_RE_LEV number, 			     
+  comment_RE_SEQ number, 			    
+  comment_rename varchar2(20),
+  primary key(comment_idx)
+);
+
+
+drop sequence kakao_comment_seq;
+ create sequence kakao_comment_seq;
+
+drop table kakao_guest;
+
+create table kakao_guest (
+  g_idx number(20) not null primary key,
+  g_date date not null,
+  g_name varchar2(16) not null,
+  g_userId varchar2(20) not null,
+  g_content varchar2(40) not null,
+  g_public varchar2(10),
+  g_ref number(5),
+  g_lev number(5),
+  g_seq number(5)
+);
+
+drop sequence guestbook_seq;
+create sequence guestbook_seq increment by 1 start with 1  nocycle; 
+
+drop table kakao_memo;
+
+create table kakao_memo(
+  memo_user_id varchar2(20) not null primary key,
+  memo_content varchar2(40)
+);
+
+
+
+drop sequence kakao_message_seq;
+ create sequence kakao_message_seq;
+
+drop table kakao_message;
+
+create table kakao_message(
+  msg_idx number not null,
+  msg_sendID varchar2(20) not null,
+  msg_receiveID varchar2(20) not null,
+  msg_content varchar2(40) not null,
+  msg_check varchar2(2) not null,
+  msg_senddate date not null,
+  msg_receivedate date not null,
+  primary key(msg_idx)
+);
+
+commit;
+
+
+카카오는 제약조건 직접 기술
+
