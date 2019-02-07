@@ -1,0 +1,19 @@
+class Knight extends Piece {
+	
+	String shape() {
+		return "ⓝ";
+	}
+
+	boolean checkMove(int dx, int dy) {
+		// x차=2 y차=1  or  x차=1 y차=2
+		int gx = this.x - dx;
+		if(gx < 0 )
+			gx *= -1;
+		int gy = this.y > dy ? this.y - dy : dy- this.y;
+		if(gx ==2 && gy==1  ||  gx==1 && gy == 2) 
+			return true;
+		else
+			return false;
+	}
+
+}

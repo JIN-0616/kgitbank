@@ -1,0 +1,42 @@
+/*
+	공 을 객체화.
+	
+	프로그램을 만드는데 있어서 객체를 설계하는데, 
+	관련된것들은 묶어서 패키지(폴더) 처리해서 설계하는걸 권장한다.
+	
+	(이제까지 따로 패키지 처리하지 않은 객체들은 디폴트 패키지 소속으로 설계가 된다./)
+	패키지를 지정해서 설계한 객체들은 컴파일시 방법이 다르다.
+
+	1. 옵션으로 해결하는 방법
+		javac -d . 파일명(.java 포함) /    cf.일반 컴파일 : javac  파일명(.java 포함)
+
+	2. 처리할 패키지를 작업폴더기준으로 만들어서
+
+*/
+
+package baseball;
+
+public class Ball {
+	int speed;
+	public int course;
+
+	Ball(int sp, int co) {
+		this.speed = sp;
+		this.course = co;
+	}
+
+	public String current() {
+		String str = speed+"Km ";
+		switch(this.course) {
+		case -1:
+			return str + "바깥쪽 코스";
+		case 0:
+			return str + "몰린 코스";
+		case 1:
+			return str + "안쪽 코스";
+		}
+		return str + " 알수없는 코스";
+	}
+}
+
+

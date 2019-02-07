@@ -1,0 +1,70 @@
+/*
+	3. super 라는 키워드를 사용해야되는 상황이 있을수도 있다.
+	- 원본(부모)쪽에 매개변수 없는 생성자가 존재하지 않는다면, 만들어내는 방식을 바꿔줘야 하는데
+	이때 이 키워드가 쓰인다.
+	- 사용하고자 하는 변수나, 기능이 부모꺼임을 명시하고 싶을때 super로 지정해줄수 있다. 
+	- (만약, extends 걸고 설계할때 원본에 있는데 있는 이름으로 
+		다시 또 변수나 함수를 만드는걸 허용한다. 그럴때는 반드시 super , this 이렇게 구분해서 처리해야된다.)
+*/
+class Talent {
+	Talent(String s) {
+		System.out.println("Talent created.."+ s);
+	}
+	Talent(int s) {
+		System.out.println("Talent created.."+ s);
+	}
+	String tell() {
+		if(Math.random()>0.5)
+			return "안녕하세요";
+		else
+			return "반갑습니다";
+	}
+}
+class Actor extends Talent {
+	Actor() {
+		// new Talent("??");
+		super(11);
+		System.out.println("Actor created");
+	}
+	
+	String performance(boolean mode) {
+		if(mode) {
+			return "(화색을 띄며)"+ super.tell();
+		}else {
+			return "(급정색 하며)"+ super.tell();
+		}
+	}
+
+}
+
+
+class MovieStar extends Actor {
+	MovieStar() {
+		// new Actor() 이런 역할의 코드를 작성해야되지만, 생략시 자동설정 super();
+		System.out.println("MovieStar created");
+	}
+}
+//=======================================================================
+class Source05_DiveExtension {
+	public static void main(String[] args) 	{
+		Actor a = new Actor();
+		String m = a.tell();
+		System.out.println(m);
+		String z = a.performance(false);
+		System.out.println(z);
+		// new MovieStar();
+
+
+		/*
+			Container 객체를 하나 생성
+		*/
+		// Container c = new Container();	
+		/*
+			만약에 생성하고자 하는 객체가 extends 를 통해서 설계된 객체라면,
+			extends 의 최상위부터 하나씩 차례대로 만들어지면서 객체가 완성된다.
+			이 때 윗단계의 객체를 생성시키는 과정에서 
+			매개변수 없는 형태의 생성자를 찾아서 생성되게 되있다.
+		*/
+	
+	}
+}

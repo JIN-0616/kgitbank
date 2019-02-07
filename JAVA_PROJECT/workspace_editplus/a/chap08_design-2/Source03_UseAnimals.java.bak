@@ -1,0 +1,24 @@
+class Source03_UseAnimals {
+	public static void main(String[] args) 	{
+		Korean k = new Korean();
+		European e = new European();
+		Tiger t = new Tiger();
+		Elephant p = new Elephant();
+		/*
+			Korean 객체는 최초 animal 로부터 Human을 거쳐 확장되며 만들어진 객체이다.
+			Korean 객체도, Animal의 성질이 발현된 하나의 종으로 취급이 되기에
+		*/
+		Animal a = new Korean();	// Korean 객체는 상위타입의 객체변수로 제어할수 있다.
+		
+		Human b;	// Human타입의 객체변수로 제어되는 객체는 Human의 계열이면 다 제어할수 있다.
+		b = new Korean();
+		b = new European();
+		b = new Tiger();
+
+		Tiger t;
+			t= new Tiger();
+			t= new Tiger();
+			t = new Elephant();
+		// 이걸 이용하기 위해서, 상속관계를 만들어서 활용하기도 한다.
+	}
+}

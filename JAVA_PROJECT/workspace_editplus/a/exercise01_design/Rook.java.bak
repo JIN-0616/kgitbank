@@ -1,0 +1,6 @@
+class Rook extends Piece {
+	
+	Rook(int x, int y, boolean flag ) {
+		super(x, y, flag);
+	}
+}

@@ -1,0 +1,36 @@
+
+/*
+	
+*/
+
+
+
+/*
+	패키지 처리했다면, 
+	public 으로 설계해두어야 타패키지에서 연동이 됨. 
+	(public으로 설계하려면 파일이름을 무조건 일치시켜야 함)
+
+	public class 인 경우라면 인식되긴 하지만,
+
+	그안에 설계한 생성자나,변수나, 함수가 호출되는건 따로 또 지정을 해야만 한다.
+*/
+package baseball;
+public class PitchingMachine {
+	
+	int hard;	// 0, 1, 2
+	
+	public PitchingMachine(int hard) {
+		this.hard = hard;
+	}
+
+	public Ball pitch() {
+		int s = 80 + hard*20 + (int)(Math.random()*20);
+		int c = -1 + (int)(Math.random()*3);
+
+		Ball b = new Ball(s, c);
+		if(Math.random() > 0.8) {
+			b.course = -2;
+		}
+		return b;
+	}
+}

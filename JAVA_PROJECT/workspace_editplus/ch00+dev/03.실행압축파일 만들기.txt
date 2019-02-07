@@ -1,0 +1,13 @@
+객체를 사용한 프로그램의 경우, main 설정 파일만 가지고는 프로그램이 돌아가지 않는다.
+main 을 가진 클래스를 작동을 시키는데 필요한 애들을 묶어서 압축을 해야 한다.
+
+## 실행용 jar 파일 만들기 ##
+
+1.  cmd 창으로 cd 명령어를 이용해서 해당 파일들이 있는곳까지 이동
+
+2.  jar cfe  [만들파일명] [작동시킬.class명]    [포함시킬.class 명들]
+  예) jar cfe  quiz.jar   Exercise01_QuizProgram  *.class
+
+
+3. 이 jar 파일을  java -jar 파일명  
+  예) java  -jar  quiz.jar

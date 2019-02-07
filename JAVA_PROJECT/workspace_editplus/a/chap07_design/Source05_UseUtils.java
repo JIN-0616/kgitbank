@@ -1,0 +1,22 @@
+class Source05_UseUtils {
+	public static void main(String[] args) 	{
+		Utils u = new Utils();
+		int v = u.max(3, 5);
+		System.out.println(v);
+		int vv = Utils.max(5, 6);
+		System.out.println(vv);
+		Math.random();
+		/*
+			main 에 왜 static 이 있냐..? 
+		*/
+	// 	Source05_UseUtils.main(null);
+		Source04_Time s = new Source04_Time();
+		s.main(null);
+		/*
+			java Source05_UseUtils ==>
+			main이 static이 아니라면, 객체생성을 해서 call을 해야만 성립이 된다.
+			JVM 에서 메인코드 돌릴때 해당객체를 생성시키는 능력이 없어서.
+		*/
+		Source01_UseBot.main(null);
+	}
+}

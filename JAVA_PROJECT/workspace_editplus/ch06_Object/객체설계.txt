@@ -1,0 +1,39 @@
+﻿ 업다운만들때 써먹을 객체는 이랬으면 좋겠다.
+ (이 객체는 유저별로 하나씩 만들어진다고 생각하고 설계)
+ 데이터 입출력은 메인에서 일어난가고 가정해서 설계할 것
+
+ - 저장하고 있을 데이터 -
+
+ int min, max	 최소 최대 범위지정
+
+ int target 	 목표하는 수치 저장
+
+ int try  		 제한회수 수치 저장
+ int tried 		 실행회수 수치 저장
+
+ boolean goal	 목표수치를 찾았을때 정지할수 있는 트리거값
+
+ boolean auto        자동진행 트리거값
+
+ 
+
+ - 처리할 기능(이유) -
+ .min, .max, .target, .try 
+  (목표)수치값 제한 입력
+  최초 최소최대갑, 목표수치입력, 횟수제한설정
+ 
+ .random()
+ 입력수치가 없을때 랜덤수치 생성(진행) 함수
+
+ .random(int n1,int n2)
+ 범위 내 랜덤수치 생성 실행(진행) 함수  
+
+ #내부기능 
+ 
+ .handle(String data, int min, int max)
+ 
+ .greater(int n1, int n2)
+
+ .less (int n1, int n2)
+
+ return value	 진행완료 혹은 종료했을때 리턴값

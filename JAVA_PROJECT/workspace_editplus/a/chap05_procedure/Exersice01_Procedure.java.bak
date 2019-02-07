@@ -1,0 +1,77 @@
+class Exersice01_Procedure {
+	/*
+		프로시져 몇개를 설계해서 그걸 토대로 작동하는 프로그램을 하나 만들어보자.
+		업앤다운 ? 
+			맞춰야되는 숫자는 정해져있고, 
+			사용자로부터 입력받아서 사용자가 입력한 숫자가 실제 목표보다 낮은숫자다 혹은 높은숫자다
+			라는걸 알려주면서 숫자를 맞추게 유도하는 숫자 게임
+
+		데이터는 목표숫자, 범위, 시도한 회수 를 관리하려고 함.
+	*/
+
+	// 특정범위사이의 랜덤정수를 만들어내는 기능 : int random(int n1, int n2) { .. 
+	static int random(int n1, int n2) {
+		return n1+(int)(Math.random()*(n2-n1+1) );
+	}
+	// 1~200사이의 랜덤정수 만들어내는 기능 : int random() { ..
+	static int random( ) {
+		return random(1, 200);
+	}
+	
+	// 두수중에 큰수를 계산해주는 기능 : int greater(int n1, int n2) { ..
+	static int greater(int n1, int n2) {
+		return n1> n2 ? n1 : n2;
+	}
+	// 두수중에 작은수를 계산해주는 기능 : int less(int n1, int n2) { ..
+	static int less(int n1, int n2) {
+		if(n1<n2)
+			return n1;
+		else
+			return n2;
+	}
+	// 정수하나를 만들어내는 기능 : int handle(String data, int min, int max) { ..
+	static int handle(String data, int min, int max) { 
+		int r;
+		switch(data){
+		case "":
+			r = random(min, max);
+			break;
+		default :
+			r = Integer.valueOf(data);
+		}
+		return r;
+	}
+
+	public static void main(String[] args) {
+		int min = 1;
+		int max = 200;
+		int target = random();
+		int tried = 0;
+		//────────────────────────
+		System.out.println("[SYSTEM] UP_AND_DOWN");
+		while(tried<10) {
+			System.out.print("[SYSTEM] "+ (++tried) + " TRIED ("+min +" ~ "+max+") : ");
+			String in = System.console().readLine();
+			int got = handle(in, min, max);
+					
+			if(got == target) {
+				System.out.println("[SYSTEM] CORRECT VALUE !!! " + got);
+				break;
+			} else if(got<target) {
+				System.out.println("[SYSTEM] TARGET VALUE IS GREATER THAN " + got);
+				min = greater(got, min);
+			} else {
+				System.out.println("[SYSTEM] TARGET VALUE IS LESS THAN " + got);
+				max = less(got, max);
+			}
+		}
+		/*───────────────────────────────────────────
+			여기서 작업했던걸 기반으로,
+			컴퓨터와 숫자 빨리마추기로 바꾸세요.
+		
+
+
+
+		─────────────────────────────────────────────*/
+	}
+}
