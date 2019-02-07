@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[hello.html]</title>
+ <style type="text/css">
+   *{font-size: 20pt; font-weight: bold; }
+ </style>
+ 
+ <script type="text/javascript">
+  var xhr; //전역변수=필드
+   
+  function two(){
+	xhr=three(); 
+	var a =myform.title.value;
+	if(a==null || a==""){
+		alert("제목데이터입력하세요");
+		myform.title.focus();
+		return;
+	}
+	
+	var url="helloAjax.jsp?title="+a;
+	xhr.onreadystatechange=function(){ 
+		if(xhr.readyState==4){
+			 if(xhr.status==200){
+				var str=xhr.responseText;
+				alert(str);
+				document.getElementById("msg").innerHTML=str;
+			  }
+			}  	
+	 };
+	xhr.open("GET", url, true); //3번째인자 true비동기 
+	xhr.send(null);
+  }//end
+  
+  function three(){
+	 return new XMLHttpRequest( ); 
+  }//end
+ 
+  function display( ){
+	if(xhr.readyState==4){
+	 if(xhr.status==200){
+		var str=xhr.responseText;
+		alert(str);
+		document.getElementById("msg").innerHTML=str;
+	  }
+	}  
+  }//end
+ </script>
+</head>
+<body>
+
+  <img src="images/bar.gif"><br>
+  <img src="images/bar.gif"><p>
+
+ <div id="msg">  
+   <form  name="myform">
+      제목:<input type="text" name="title" id="title">
+       <input type="button" onclick="two()" value="ajax전송">
+   </form> 
+   <br>
+  <img src="images/a4.png">
+</div>
+ 
+</body>
+</html>
+
+
+
+
