@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[hello2.html]</title>
+ <style type="text/css">
+  *{font-size: 20pt; font-weight: bold;}
+ </style>
+ <script type="text/javascript">
+  var xhr;
+ function two(){
+	 xhr = new XMLHttpRequest();
+	 var a = myform.title.value;
+	 if(a==null || a==""){
+		 alert("제목데이터입력하세요");
+		 myfrom.title.focus();
+		 return;
+	 }
+	 var url = "helloAjax.jsp?title="+a;
+	 xhr.onreadystatechange = function(){
+		if(this.readyState==4 && this.status == 200){
+			document.getElememtById("msg").innerHTML = xhr.responseText;	
+		}	 
+	 };
+	 xhr.open("GET", url, true); // 3번째인자 true 비동기
+	 xhr.send();
+	 //페이지전체가 아닌 부분만 변경하여 사용할때 Ajax 사용	
+ } 
+ </script>
+</head>
+<body>
+ <img src="images/bar.gif"><br>
+ <img src="images/bar.gif"><p>
+
+<div id="msg">
+ <form name="myform">
+ 	제목:<input type="text" name="title" id="title">
+       <input type="submit" onclick="two()" value="ajax전송">
+ </form> 
+ <br><img src="images/a3.png">
+</div>
+ 
+</body>
+</html>

@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+
+<script type="text/javascript">
+	var sunsu = new Array( );
+	var temp = 1;
+	var imgsource1 = new Array("1.gif", "2.gif", "3.gif", "4.gif", "5.gif","6.gif", "7.gif",
+	    "8.gif", "9.gif", "10.gif", "11.gif", "12.gif", "13.gif", "14.gif", "15.gif","blink.gif");
+	var blink = 0;
+
+	function game( ) { //시작버튼클릭시 호출되는 함수
+		imagerandom( ); //난수발생후 중복후 for(for(if)) 
+		mixposition( );
+	}//end
+
+	function imagerandom( ){ //random, round, for			
+		var a = Math.round(Math.random()*15);
+		for(i=0; i<16; i++){
+			sunsu[i]=Math.round(Math.random()*15);
+			for(j=0; j<i; j++){
+				if(sunsu[i]==sunsu[j]){
+					i--;
+				}
+			}
+		}		
+      //난수만발생 Math.round(Math.random()*15); //난수 
+	}// imagerandom end
+
+	function mixposition( ){// document.images[배열첨자].src=
+		for(i=0; i<16; i++){
+			document.images[i].src=imgsource1[sunsu[i]];
+			if(sunsu[i]==15) 
+				blink=i;
+		}
+	}//mixposition end
+
+
+	function move(k) {
+		gap = Math.abs(blink-k);
+		//alert("이동가능성그림숫자: "+gap)
+		if(gap==4 || gap==1){
+			var a = document.images[k].src;						
+			document.images[k].src = document.images[blink].src;
+			document.images[blink].src = a;
+			blink = k;
+			// 직접 이미지를 옮기느냐 
+			// 배열첨자를 바꾸고 다시 배치 하느냐
+			/* 
+			temp=sunsu[k];
+			sunsu[k]=sunsu[blink];
+			sunsu[blink]=temp;
+			mixposition();
+			*/
+			
+		}
+	   //블루색blink 이동 처리 
+	   //mixposition호출
+	}// move end
+
+
+	function success( ){ //퍼즐다 맞추었을때 성공메세지 
+		/*
+		val all = true;
+		for(i=0 ; i <15 ; i++){
+			if(document.images[i].src != imgsource1[i]){
+				all = false;		  
+		}
+		if(document.images[15].src != imagesource1[blink]){
+			all = false;
+		}
+		if(all == true){
+			alert("빙고빙고 다 맞췄네.. ㅊㅋㅊㅋ");	
+		}
+		*/
+	  }// success end
+</script>
+</head>
+
+<body>
+<font  size=7  color=green> <b> 퍼 즐 게 임 </b></font><br>
+<form>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input id="btn_name" type = "button" value = "  시&nbsp;&nbsp;&nbsp;&nbsp;작  " 
+	 onClick = "game( )"   style="font-size:24pt; font-style:bold; " > <p>
+</form>
+
+<script type="text/javascript">
+	imgsource = new Array("1.gif", "2.gif", "3.gif", "4.gif", "5.gif", "6.gif", "7.gif", "8.gif",
+			  "9.gif", "10.gif", "11.gif", "12.gif", "13.gif", "14.gif", "15.gif", "16.gif") ;
+
+	for (i =0 ; i<16 ; i++){
+	  document.write("<img src=" + imgsource[i] + " border = 1 onClick = 'move(" + i + ")'>") ;
+	  if (((i+1)%4)==0) document.write("<br>") ;
+	}
+</script>
+
+</body>
+</html>
+

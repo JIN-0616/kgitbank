@@ -6,7 +6,8 @@
 [remote "origin"]
 	url = https://github.com/JIN-0616/kgitbank.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
-	push = HEAD:a
+	push = refs/heads/master:refs/heads/master
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
+	rebase = false

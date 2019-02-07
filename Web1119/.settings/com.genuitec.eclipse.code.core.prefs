@@ -1,0 +1,4 @@
+customPatterns=true
+customValidation=true
+eclipse.preferences.version=1
+patternsAdded=*.ascx,*.atom,*.axml,*.bpmn,*.config,*.cpt,*.csl,*.csproj,*.dita,*.ditamap,*.dtd,*.dtml,*.es6,*.fsproj,*.fxml,*.iml,*.isml,*.jav,*.java,*.jmx,*.js,*.launch,*.menu,*.mjs,*.mxml,*.nuspec,*.opml,*.owl,*.pac,*.proj,*.props,*.pt,*.publishsettings,*.pubxml,*.rdf,*.rng,*.rss,*.shproj,*.storyboard,*.svg,*.targets,*.tld,*.tmx,*.vbproj,*.vcxproj,*.wsdl,*.wxi,*.wxl,*.wxs,*.xaml,*.xbl,*.xib,*.xlf,*.xliff,*.xml,*.xoml,*.xpdl,*.xsd,*.xul,

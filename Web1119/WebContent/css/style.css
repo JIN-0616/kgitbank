@@ -1,0 +1,66 @@
+
+*{ 
+    font-family: ���� ���; 
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 2px;  
+  }
+
+ 
+
+  /* �޴� ���� ���� 1*/
+  nav{ margin-bottom: 25px; }
+
+  
+  /* �޴� ���� ���� 2, �±��� id �� topMenu�� ��Ÿ��*/  
+  #topMenu{
+    height: 40px;
+    width: 100%;
+    background-color: #555555;
+  }
+  
+  #topMenu ul li{
+    list-style: none;     /* �� ��ȣ ����  list-style: none;   */
+    color: white;         /* ���� #555555 ����*/
+    background-color:  #555555;
+    float: left;      /* float: left;  li �±��� ��� ������ �������� ���� */
+    line-height: 30px; /* �ϳ��� �� ���� */
+    vertical-align: middle; /* ���� ���� �߰� ���� */
+    text-align: center;      /* ���� ���� ���� */
+  }
+  
+   
+  #topMenu .menuLink{   /* A �±� �Ӽ� ���� */
+    text-decoration: none;  /* ���� ���� */
+    color: white;   
+    display: block;   /* A ���� ���� ���� ��ũ ���� */
+    width: 150px;
+    font-weight: bold;
+    font-family:  Segoe UI Symbol , comic Sans MS ; 
+    font-size: 16pt;
+  }
+  
+ {  /* A �±׿� ���콺 over �Ӽ� ���� */
+    color: #00FF00;
+    background-color: #4d4d4d;
+  }
+  
+
+ #bottom{ 
+    font-family: Comic Sans MS; 
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5%;
+    padding: 2px;  
+  }
+
+
+#table{
+    margin: 0px auto;  /* ��� ���� */
+    border-style: solid; /*  �Ǽ� */
+    border-width: 2px; /* �� �β� */
+    border-color: #999999; /* �� ���� */
+    border-collapse: collapse; /* �� ��輱 ����*/
+}
+ 
